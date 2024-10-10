@@ -1,0 +1,13 @@
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: 'php://stdout'
+            level: info
+            formatter: monolog.formatter.json
+            bubble: false
+            channels: [ '!php', '!security', '!request' ]
+        console:
+            type: console
+            level: info
+            process_psr_3_messages: false

@@ -1,0 +1,32 @@
+home: Главная
+about: О нас
+start_testing: Начать тестирование
+contact: Контакты
+test_results: Результаты теста
+session: Сессия
+completed_at: Завершено в
+question: Вопрос
+answer: Ответ
+correct: Правильный
+incorrect: Неправильный
+answer_text: Текст ответа
+is_correct: Правильный
+yes: Да
+no: Нет
+questions_list: Список вопросов
+submit: Отправить
+contacts: Контакты
+our_contacts: Наши контакты
+contact_details: Здесь вы можете найти наши контактные данные и связаться с нами напрямую.
+email: Электронная почта
+phone: Телефон
+address: Адрес
+contact_us: Свяжитесь с нами
+feel_free_to_contact: Не стесняйтесь связаться со мной.
+github: GitHub
+welcome_to_our_website: Добро пожаловать!
+homepage_description: Это сайт тестирования с вопросами с нечеткой логикой.
+user_answers: Выбранные ответы
+correct_answers: Правильные ответы
+result: Результат
+test_results_list: Список результатов тестирования

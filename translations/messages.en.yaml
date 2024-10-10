@@ -1,0 +1,32 @@
+home: Home
+about: About
+start_testing: Start testing
+contact: Contact
+test_results: Test Results
+session: Session
+completed_at: Completed At
+question: Question
+answer: Answer
+correct: Correct
+incorrect: Incorrect
+answer_text: Answer Text
+is_correct: Is Correct
+yes: Yes
+no: No
+questions_list: Questions List
+submit: Submit
+contacts: Contacts
+our_contacts: Our Contacts
+contact_details: Here you can find our contact details and reach out to us directly.
+email: Email
+phone: Phone
+address: Address
+contact_us: Contact Us
+feel_free_to_contact: Feel free to contact me.
+github: GitHub
+welcome_to_our_website: Welcome to Our Website
+homepage_description: This is the homepage of our Symfony application. Here you can find various resources and information about our services.
+user_answers: Chosen Answers
+correct_answers: Correct Answers
+result: Result
+test_results_list: Test Results List

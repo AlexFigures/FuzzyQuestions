@@ -7,7 +7,6 @@ services:
       args:
         - APP_ENV=dev
     image: fuzzy-questions-app:8.3
-    container_name: php
     restart: unless-stopped
     environment:
       PHP_IDE_CONFIG: "serverName=localhost"
@@ -17,13 +16,14 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - '.:/app:delegated'
-      - './build/config/local/php/20-xdebug.ini:/usr/local/etc/php/conf.d/20-xdebug.ini'
+      - './build/config/local/php/20-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
+      - './build/config/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf'
+      - './build/config/php/17-php.ini:/usr/local/etc/php/conf.d/php.ini'
     depends_on:
       - postgres
 
   nginx:
     image: nginx:alpine
-    container_name: nginx
     restart: unless-stopped
     tty: true
     ports:
@@ -36,10 +36,9 @@ services:
 
   postgres:
     image: 'postgres:alpine'
-    container_name: postgres
     restart: always
     ports:
-      - "5432"
+      - "5432:5432"
     environment:
       POSTGRES_PORT: 5432
       PGPASSWORD: tmp
@@ -49,6 +48,6 @@ services:
     volumes:
       - './pgsql:/var/lib/postgresql/data:delegated'
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME}"]
+      test: ["CMD-SHELL", "pg_isready -U app"]
       retries: 3
       timeout: 5s

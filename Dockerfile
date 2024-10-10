@@ -1,6 +1,5 @@
 FROM php:8.3-fpm-alpine
-ENV APP_ENV='prod'
-
+ENV APP_ENV=${APP_ENV:-prod}
 RUN deluser www-data; delgroup www-data; \
     addgroup -g 33 www-data && \
     adduser -D -u 33 -G www-data www-data
@@ -28,11 +27,8 @@ RUN install-php-extensions  \
     intl \
     opcache \
     zip \
-    mbstring
-
-RUN if [ "$APP_ENV" = "dev" ]; then \
-    install-php-extensions xdebug; \
-    fi
+    mbstring \
+    xdebug
 
 RUN apk del $PHPIZE_DEPS && \
     rm -rf /var/cache/apk/*

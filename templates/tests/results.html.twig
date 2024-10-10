@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'test_results'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="results-container">
+        <h1>{{ 'test_results'|trans }}</h1>
+        <p>{{ 'session'|trans }}: {{ results.id }}</p>
+        <p>{{ 'completed_at'|trans }}: {{ results.completedAt|date('Y-m-d H:i:s') }}</p>
+        <ul>
+            {% for result in results.testResults %}
+                <li class="{{ result.isCorrect ? 'correct' : 'incorrect' }}">
+                    <strong>{{ 'question'|trans }}:</strong> {{ result.question }}<br>
+                    <strong>{{ 'user_answers'|trans }}:</strong>
+                    <ul class="user-answers">
+                        {% for userAnswer in result.answers.user_answers %}
+                            <li>{{ userAnswer }}</li>
+                        {% endfor %}
+                    </ul>
+                    <strong>{{ 'correct_answers'|trans }}:</strong>
+                    <ul class="correct-answers">
+                        {% for correctAnswer in result.answers.correct_answers %}
+                            <li>{{ correctAnswer }}</li>
+                        {% endfor %}
+                    </ul>
+                    <strong>{{ 'result'|trans }}:</strong> {{ result.isCorrect ? 'correct'|trans : 'incorrect'|trans }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'home'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'welcome_to_our_website'|trans }}</h1>
+    <p>{{ 'homepage_description'|trans }}</p>
+    <a href="{{ path('start_testing_action') }}" class="btn">{{ 'start_testing'|trans }}</a>
+{% endblock %}

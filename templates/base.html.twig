@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{{ path('homepage') }}">{{ 'home'|trans }}</a></li>
+            <li><a href="{{ path('start_testing_action') }}">{{ 'start_testing'|trans }}</a></li>
+            <li><a href="{{ path('results_list_action') }}">{{ 'test_results_list'|trans }}</a></li>
+            <li><a href="{{ path('contact') }}">{{ 'contact'|trans }}</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</main>
+
+<footer>
+    <p>&copy; {{ "now"|date("Y") }} AlexFigures</p>
+</footer>
+</body>
+</html>

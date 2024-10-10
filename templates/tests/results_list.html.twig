@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'test_results_list'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="results-list-container">
+        <h1>{{ 'test_results_list'|trans }}</h1>
+        <ul class="results-list">
+            {% for result in results %}
+                <li class="results-list-item">
+                    <a href="{{ path('results_action', {id: result.id}) }}" class="results-list-link">
+                        <div class="results-list-content">
+                            <span class="results-list-session">{{ 'session'|trans }}: {{ result.id }}</span>
+                            <span class="results-list-date">{{ 'completed_at'|trans }}: {{ result.completedAt|date('Y-m-d H:i:s') }}</span>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
